@@ -9,28 +9,20 @@
         <artifactId>simple-java-mail-module-parent</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>6.0.0.beta-SNAPSHOT.2</version>
-        <relativePath>../../module-parent-pom.xml</relativePath>
+        <relativePath>../../</relativePath>
     </parent>
 
-    <artifactId>batch-module</artifactId>
+    <artifactId>core-test-module</artifactId>
     <packaging>jar</packaging>
-    <name>Simple Java Mail - Batch module</name>
-    <description>Simple API, Complex Emails. High performance.</description>
+    <name>Simple Java Mail - Core Test module</name>
+    <description>Simple API, Complex Emails. Core module test support</description>
 
     <dependencies>
-
-        <!-- core dependencies -->
         <dependency>
             <groupId>org.simplejavamail</groupId>
             <artifactId>core-module</artifactId>
             <version>${project.version}</version>
-        </dependency>
-
-        <!-- needed for pooling SMTP (JavaMail Transport) connections -->
-        <dependency>
-            <groupId>org.simplejavamail</groupId>
-            <artifactId>smtp-connection-pool</artifactId>
-            <version>1.0.7</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

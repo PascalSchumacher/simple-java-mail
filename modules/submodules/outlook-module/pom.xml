@@ -9,20 +9,29 @@
         <artifactId>simple-java-mail-module-parent</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>6.0.0.beta-SNAPSHOT.2</version>
-        <relativePath>../../module-parent-pom.xml</relativePath>
+        <relativePath>../../</relativePath>
     </parent>
 
-    <artifactId>core-test-module</artifactId>
+    <artifactId>outlook-module</artifactId>
     <packaging>jar</packaging>
-    <name>Simple Java Mail - Core Test module</name>
-    <description>Simple API, Complex Emails. Core module test support</description>
+    <name>Simple Java Mail - Outlook module</name>
+    <description>Simple API, Complex Emails. Now with Outlook support</description>
 
     <dependencies>
+
+        <!-- core dependencies -->
         <dependency>
             <groupId>org.simplejavamail</groupId>
             <artifactId>core-module</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- needed for outlook support -->
+        <dependency>
+            <groupId>org.simplejavamail</groupId>
+            <artifactId>outlook-message-parser</artifactId>
+            <version>1.4.0</version>
         </dependency>
     </dependencies>
 </project>

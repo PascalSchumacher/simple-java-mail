@@ -9,13 +9,13 @@
         <artifactId>simple-java-mail-module-parent</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>6.0.0.beta-SNAPSHOT.2</version>
-        <relativePath>../../module-parent-pom.xml</relativePath>
+        <relativePath>../../</relativePath>
     </parent>
 
-    <artifactId>smime-module</artifactId>
+    <artifactId>batch-module</artifactId>
     <packaging>jar</packaging>
-    <name>Simple Java Mail - S/MIME module</name>
-    <description>Simple API, Complex Emails. Now with S/MIME support</description>
+    <name>Simple Java Mail - Batch module</name>
+    <description>Simple API, Complex Emails. High performance.</description>
 
     <dependencies>
 
@@ -26,11 +26,11 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- needed for S/MIME support -->
+        <!-- needed for pooling SMTP (JavaMail Transport) connections -->
         <dependency>
-			<groupId>net.markenwerk</groupId>
-			<artifactId>utils-mail-smime</artifactId>
-			<version>1.0.8</version>
-		</dependency>
+            <groupId>org.simplejavamail</groupId>
+            <artifactId>smtp-connection-pool</artifactId>
+            <version>1.0.7</version>
+        </dependency>
     </dependencies>
 </project>

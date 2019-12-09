@@ -2,6 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+    <!--
+        this in-between POM is because the javadoc plugin in the root POM's parent messes up the aggregate report
+        and needs to be set to non-inherited in the root POM. At the same time we need global javadoc plugin config
+        for all submodules, so that's where this plugin comes in
+
+        To be consistent, all config is moved here from the root POM
+     -->
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,13 +17,26 @@
         <artifactId>maven-master-project</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>6.0.0.beta-SNAPSHOT.2</version>
-        <relativePath>./</relativePath>
+        <relativePath>../</relativePath>
     </parent>
 
     <artifactId>simple-java-mail-module-parent</artifactId>
     <packaging>pom</packaging>
     <name>Simple Java Mail - Module Commons POM</name>
     <description>Parent POM with commons config for all modules, mainly to fix how the Maven Javadoc plugin is configured</description>
+
+    <modules>
+        <module>submodules/core-module</module>
+        <module>submodules/core-test-module</module>
+        <module>submodules/batch-module</module>
+        <module>submodules/authenticated-socks-module</module>
+        <module>submodules/outlook-module</module>
+        <module>submodules/dkim-module</module>
+        <module>submodules/smime-module</module>
+        <module>submodules/simple-java-mail</module>
+        <module>submodules/spring-module</module>
+        <module>submodules/cli-module</module>
+    </modules>
 
     <dependencies>
         <!-- utility -->
@@ -75,7 +96,7 @@
 
     <build>
         <plugins>
-            <plugin><!-- this plugin must come after jacoco instrument -->
+            <plugin><!-- this plugin must always come after jacoco instrument -->
                 <groupId>se.eris</groupId>
                 <artifactId>notnull-instrumenter-maven-plugin</artifactId>
                 <configuration>

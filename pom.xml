@@ -19,7 +19,7 @@
     <description>Simple Java Mail - Maven master project</description>
     <url>http://www.simplejavamail.org/</url>
 
-    <!-- to skip some steps: -DskipTests -Dspotbugs.skip=true -Dmaven.javadoc.skip=true -Denforcer.skip=true -Djacoco.skip=true -->
+    <!-- to skip some steps: -DskipTests -Dspotbugs.skip=true -Dmaven.javadoc.skip=true -Denforcer.skip=true -Djacoco.skip=true -Dlicense.skip=true -->
 
     <issueManagement>
         <system>GitHub Issues</system>
@@ -33,16 +33,7 @@
     </scm>
 
     <modules>
-        <module>modules/core-module</module>
-        <module>modules/core-test-module</module>
-        <module>modules/batch-module</module>
-        <module>modules/authenticated-socks-module</module>
-        <module>modules/outlook-module</module>
-        <module>modules/dkim-module</module>
-        <module>modules/smime-module</module>
-        <module>modules/simple-java-mail</module>
-        <module>modules/spring-module</module>
-        <module>modules/cli-module</module>
+        <module>modules</module>
         <module>modules/jacoco-aggregator-module</module>
     </modules>
 

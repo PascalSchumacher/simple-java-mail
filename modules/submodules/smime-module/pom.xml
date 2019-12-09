@@ -9,13 +9,13 @@
         <artifactId>simple-java-mail-module-parent</artifactId>
         <!--suppress MavenPropertyInParent -->
         <version>6.0.0.beta-SNAPSHOT.2</version>
-        <relativePath>../../module-parent-pom.xml</relativePath>
+        <relativePath>../../</relativePath>
     </parent>
 
-    <artifactId>authenticated-socks-module</artifactId>
+    <artifactId>smime-module</artifactId>
     <packaging>jar</packaging>
-    <name>Simple Java Mail - Authenticated SOCKS module</name>
-    <description>Simple API, Complex Emails. Now with SOCKS5 support</description>
+    <name>Simple Java Mail - S/MIME module</name>
+    <description>Simple API, Complex Emails. Now with S/MIME support</description>
 
     <dependencies>
 
@@ -25,5 +25,12 @@
             <artifactId>core-module</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- needed for S/MIME support -->
+        <dependency>
+			<groupId>net.markenwerk</groupId>
+			<artifactId>utils-mail-smime</artifactId>
+			<version>1.0.8</version>
+		</dependency>
     </dependencies>
 </project>
