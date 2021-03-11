@@ -510,9 +510,12 @@ public final class EmailConverter {
 	 * @return The result of {@link MimeMessage#writeTo(OutputStream)} which should be in the standard EML format.
 	 */
 	public static String mimeMessageToEML(@NotNull final MimeMessage mimeMessage) {
-		final ByteArrayOutputStream os = new ByteArrayOutputStream();
+		checkNonEmptyArgument(mimeMessage, "mimeMessage");
 		try {
-			checkNonEmptyArgument(mimeMessage, "mimeMessage").writeTo(os);
+			// content size plus some bytes for headers
+			final int estimatedMimeMessageSize = mimeMessage.getSize() + 512;
+			final ByteArrayOutputStream os = new ByteArrayOutputStream(estimatedMimeMessageSize);
+			mimeMessage.writeTo(os);
 			return os.toString(UTF_8.name());
 		} catch (IOException | MessagingException e) {
 			// this should never happen, so we don't acknowledge this exception (and simply bubble up)
